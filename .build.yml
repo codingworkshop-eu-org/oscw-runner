@@ -1,0 +1,11 @@
+pipeline:
+  build:
+    image: codingworkshop/oscw-runner:latest
+    secrets:
+      - OSCW_DOCKERHUB_USERNAME
+      - OSCW_DOCKERHUB_PASSWORD
+    commands:
+      - echo $OSCW_DOCKERHUB_PASSWORD | docker login -u $OSCW_DOCKERHUB_USERNAME --password-stdin
+      - docker build -t codingworkshop/oscw-runner:latest .
+      - docker push codingworkshop/oscw-runner:latest
+      - docker image prune -af
