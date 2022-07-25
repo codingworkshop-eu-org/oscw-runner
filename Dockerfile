@@ -24,7 +24,7 @@ VOLUME /var/lib/docker
 EXPOSE 2375
 
 # Install XT toolchain
-RUN wget https://github.com/xt-sys/xtchain/releases/download/2.2/xtchain-2.2-linux.tar.zst -O xtchain.tar.zst && \
+RUN wget https://github.com/xt-sys/xtchain/releases/download/2.3/xtchain-2.3-linux.tar.zst -O xtchain.tar.zst && \
 	mkdir -p /opt/xtchain && \
 	tar xapf xtchain.tar.zst -C /opt/xtchain && \
 	rm xtchain.tar.zst
