@@ -5,7 +5,7 @@ MAINTAINER CodingWorkshop <constitutive@codingworkshop.eu.org>
 RUN pacman -Syu --noconfirm --noprogressbar --quiet
 
 # Install additional packages
-RUN pacman -Syu --noconfirm --noprogressbar --quiet autoconf automake binutils bison cppcheck docker flex gcc git libedit libmd linux-headers patch pkgconfig texinfo wget 
+RUN pacman -Syu --noconfirm --noprogressbar --quiet autoconf automake binutils bison cppcheck docker flex gcc git libedit libmd linux-headers mtools parted patch pkgconfig texinfo wget 
 
 # Set locale
 RUN echo 'en_US.UTF-8 UTF-8' > /etc/locale.gen && \
