@@ -1,0 +1,11 @@
+#!/bin/bash
+
+SOURCE="${1}"
+DESTINATION="${2}"
+
+echo "Publishing CI/CD artifacts for '${CI_COMMIT_REF}'"
+
+echo "$OSCW_ARTIFACTS_USERKEY" | base64 -d > ~/artifacts.key
+chmod 600 ~/artifacts.key
+
+scp -o StrictHostKeyChecking=no -i ~/artifacts.key ${SOURCE} $OSCW_ARTIFACTS_USERNAME@$OSCW_ARTIFACTS_HOSTNAME:artifacts/${DESTINATION}/

@@ -5,7 +5,7 @@ MAINTAINER CodingWorkshop <constitutive@codingworkshop.eu.org>
 RUN pacman -Syu --noconfirm --noprogressbar --quiet
 
 # Install additional packages
-RUN pacman -Syu --noconfirm --noprogressbar --quiet autoconf automake binutils bison cppcheck docker flex gcc git libedit libmd linux-headers mtools parted patch pkgconfig texinfo wget 
+RUN pacman -Syu --noconfirm --noprogressbar --quiet autoconf automake binutils bison cppcheck docker flex gcc git libedit libmd linux-headers mtools openssh parted patch pkgconfig texinfo wget 
 
 # Set locale
 RUN echo 'en_US.UTF-8 UTF-8' > /etc/locale.gen && \
@@ -32,6 +32,10 @@ RUN wget https://github.com/xt-sys/xtchain/releases/download/2.7/xtchain-2.7-lin
 # Install GitHub publishing script
 COPY files/github_publish /usr/local/bin/
 RUN chmod a+x /usr/local/bin/github_publish
+
+# Install artifacts publishing script
+COPY files/artifact_publish /usr/local/bin/
+RUN chmod a+x /usr/local/bin/artifact_publish
 
 # Set system path
 ENV PATH="/opt/xtchain:/opt/xtchain/bin:${PATH}"
